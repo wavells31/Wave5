@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wave - Amplificadores de Sonido en Madera | 2026</title>
+    <style>
+        :root {
+            --pastel-blue: #A3C4F3;
+            --pastel-blue-light: #E8F0FE;
+            --pastel-yellow: #FFF275;
+            --pastel-yellow-warm: #FFE899;
+            --pastel-accent: #6C8EBF;
+            
+           
+            --color-text-main: #333344;
+            --color-text-subtle: #666677;
+            
+            --max-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Relicta-Light.otf, sans-serif;
+            color: var(--color-text-main);
+            background-color: var(--pastel-blue-light);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 12px rgba(163, 196, 243, 0.25);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 2rem;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--color-text-main);
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--pastel-accent);
+        }
+
+        .bg-waves-pastel-1 {
+            background-color: #f6f9fe;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23A3C4F3' fill-opacity='0.45' d='M0,64L48,80C96,96,192,128,288,149.3C384,171,480,181,576,165.3C672,149,768,107,864,106.7C960,107,1056,149,1152,165.3C1248,181,1344,171,1392,165.3L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'%3E%3C/path%3E%3Cpath fill='%23FFF275' fill-opacity='0.55' d='M0,192L48,202.7C96,213,192,235,288,213.3C384,192,480,128,576,128C672,128,768,192,864,213.3C960,235,1056,213,1152,186.7C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: bottom center;
+        }
+
+        .bg-waves-pastel-2 {
+            background-color: #fffef0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23FFF275' fill-opacity='0.5' d='M0,128L60,149.3C120,171,240,213,360,213.3C480,213,600,171,720,138.7C840,107,960,85,1080,96C1200,107,1320,149,1380,170.7L1440,192L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z'%3E%3C/path%3E%3Cpath fill='%23A3C4F3' fill-opacity='0.4' d='M0,256L60,240C120,224,240,192,360,192C480,192,600,224,720,218.7C840,213,960,171,1080,154.7C1200,138,1320,149,1380,154.7L1440,160L1440,320L1380,320C1320,320,1080,320,960,320C840,320,720,320,600,320C480,320,360,320,240,320C120,320,60,320,0,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero {
+            padding: 4rem 2rem;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            width: 100%;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: var(--pastel-yellow-warm);
+            color: var(--color-text-main);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            border: 1px solid rgba(255, 232, 153, 0.8);
+        }
+
+        .hero-content h1 {
+            font-size: 2.4rem;
+            color: var(--color-text-main);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            color: var(--color-text-subtle);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.65rem 1.4rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--pastel-blue);
+            color: var(--color-text-main);
+            box-shadow: 0 4px 10px rgba(163, 196, 243, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: #8EB4E6;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: #ffffff;
+            color: var(--color-text-main);
+            border: 2px solid var(--pastel-blue);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--pastel-blue);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            flex: 1.2;
+            background-color: #ffffff;
+            padding: 14px;
+            border-radius: 24px;
+            box-shadow: 0 14px 35px rgba(108, 142, 191, 0.28);
+            border: 4px solid #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 550px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: cover;
+            border-radius: 18px;
+            transition: transform 0.4s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.02);
+        }
+
+        .section {
+            width: 100%;
+            padding: 4rem 2rem;
+        }
+
+        .section-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--color-text-main);
+            margin-bottom: 2rem;
+        }
+
+        .benefits-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+            width: 100%;
+        }
+
+        .benefit-item {
+            padding: 1.5rem 1.4rem;
+            border-radius: 14px;
+            border-left: 4px solid var(--pastel-blue);
+            box-shadow: 0 4px 12px rgba(163, 196, 243, 0.12);
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(6px);
+        }
+
+        .benefit-item h3 {
+            color: var(--color-text-main);
+            margin-bottom: 0.4rem;
+            font-size: 1.05rem;
+        }
+
+        .benefit-item p {
+            color: var(--color-text-subtle);
+            font-size: 0.88rem;
+        }
+        .benefits-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+            width: 100%;
+        }
+
+        .gallery-card {
+            background-color: #ffffff;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(163, 196, 243, 0.18);
+            border: 2px solid #ffffff;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 22px rgba(163, 196, 243, 0.3);
+        }
+
+        .gallery-img-container {
+            width: 100%;
+            aspect-ratio: 1 / 1.15;
+            background: linear-gradient(135deg, var(--pastel-blue-light), #ffffff);
+            overflow: hidden;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-card-content {
+            padding: 0.9rem;
+            background-color: #ffffff;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            border-top: 2px solid var(--pastel-yellow-warm);
+        }
+
+        .gallery-card-content h4 {
+            color: var(--color-text-main);
+            font-size: 0.98rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .gallery-card-content p {
+            color: var(--color-text-subtle);
+            font-size: 0.82rem;
+            line-height: 1.35;
+        }
+
+        .products {
+            overflow: hidden;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .slider-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .products-slider {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            padding: 1rem 0.4rem;
+            scrollbar-width: none;
+        }
+
+        .products-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .product-card {
+            flex: 0 0 calc(33.333% - 1rem);
+            scroll-snap-align: start;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 16px rgba(163, 196, 243, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 3px solid #ffffff;
+            background-color: #ffffff;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(163, 196, 243, 0.32);
+        }
+
+        .product-img-container {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-color: #f8fbff;
+            overflow: hidden;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--pastel-blue);
+            color: var(--color-text-main);
+            border: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(163, 196, 243, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            background-color: #8EB4E6;
+            transform: translateY(-50%) scale(1.08);
+        }
+
+        .slider-btn-prev { left: -15px; }
+        .slider-btn-next { right: -15px; }
+		
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.2rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #d0e0f8;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active, .dot:hover {
+            background-color: var(--pastel-accent);
+            transform: scale(1.2);
+        }
+
+        /* TESIS Y EVENTOS */
+        .tesis-box {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.8rem;
+            box-shadow: 0 6px 20px rgba(163, 196, 243, 0.18);
+            border: 2px solid var(--pastel-blue);
+            margin-bottom: 2.5rem;
+        }
+
+        .tesis-header {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .word-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #2b579a;
+            color: #ffffff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 8px rgba(43, 87, 154, 0.25);
+        }
+
+        .tesis-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.8rem;
+            margin: 1.2rem 0;
+            padding: 1rem;
+            background-color: var(--pastel-blue-light);
+            border-radius: 10px;
+        }
+
+        .tesis-details p {
+            font-size: 0.85rem;
+            color: var(--color-text-main);
+        }
+
+        .tesis-details strong {
+            color: var(--pastel-accent);
+        }
+
+        .btn-word {
+            background-color: #2b579a;
+            color: #ffffff !important;
+            border: none;
+        }
+
+        .btn-word:hover {
+            background-color: #1e3e6f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(43, 87, 154, 0.4);
+        }
+
+        .events-banner {
+            color: var(--color-text-main);
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(163, 196, 243, 0.2);
+            background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-yellow));
+            border: 2px solid #ffffff;
+        }
+
+        .events-banner h2 { margin-bottom: 0.8rem; font-size: 1.5rem; }
+        .events-banner p {
+            max-width: 550px;
+            margin: 0 auto 1.5rem auto;
+            color: var(--color-text-subtle);
+            font-size: 0.9rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #2b2e3a;
+            color: #e0e4ec;
+            padding-top: 3rem;
+            border-top: 4px solid var(--pastel-blue);
+        }
+
+        .footer-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem 2.5rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            color: #ffffff;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-column p {
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+            color: #b0b8c8;
+        }
+
+        .social-links { list-style: none; }
+        .social-links li { margin-bottom: 0.4rem; }
+        .social-links a {
+            color: #b0b8c8;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover { color: var(--pastel-yellow); }
+
+        .map-container iframe {
+            width: 100%;
+            height: 130px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .footer-bottom {
+            background-color: #1e2029;
+            text-align: center;
+            padding: 1.2rem;
+            font-size: 0.8rem;
+            color: #808a9d;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1024px) {
+            .benefits-gallery { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 900px) {
+            .product-card { flex: 0 0 calc(50% - 0.75rem); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-container { flex-direction: column; text-align: center; }
+            .hero-buttons { justify-content: center; }
+            .hero-image { max-width: 100%; }
+            .benefits-grid { grid-template-columns: 1fr; }
+            .benefits-gallery { grid-template-columns: repeat(2, 1fr); }
+            .product-card { flex: 0 0 100%; }
+            .slider-btn { display: none; }
+            .hero-content h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .section { padding: 3rem 1.2rem; }
+            .tesis-header { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <h1 style="font-size:30px; color: var(--pastel-accent);">Wave</h1>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#beneficios">Nosotros</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#tesis">Documentos</a></li>
+                <li><a href="#contacto">Contáctanos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero bg-waves-pastel-1" id="inicio">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-badge">Amplificadores de sonido pasivos</span>
+                <h1>Diseñando para que la música llegue más lejos</h1> 
+                <p>Emprendimiento que crea amplificadores de sonido para celulares elaborados en madera MDF. Nuestro producto permite aumentar el volumen del dispositivo de manera natural, sin electricidad ni componentes electrónicos, funcionando además como un práctico soporte.</p> 
+                <div class="hero-buttons">
+                    <a href="#catalogo" class="btn btn-primary">Ver Productos</a> 
+                    <a href="#tesis" class="btn btn-secondary">Ver documentos</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="imgs/wavelogo.png.jpg" alt="Logo de Wave">
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-waves-pastel-2" id="beneficios">
+        <div class="section-container">
+            <h1 class="section-title">Nosotros</h1> 
+            <div class="benefits-wrapper">
+                
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <h3>Objetivo General</h3> 
+                        <p>Diseñar y elaborar un amplificador de sonido para celular en madera que permita mejorar la intensidad del audio de manera natural, ofreciendo una solución práctica, económica y amigable con el medio ambiente.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>Funcionalidad</h3> 
+                        <p>Estructura acústica elaborada en madera MDF con canal interno que dirige y expande las ondas sonoras frontalmente. Aumenta el volumen sin baterías ni electricidad y mantiene el celular en una posición cómoda para reproducir contenido.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>Misión</h3> 
+                        <p>Diseñar y elaborar amplificadores de sonido en madera de alta calidad, utilizando materiales accesibles y procesos responsables con el medio ambiente. Buscamos ofrecer productos funcionales y estéticamente atractivos que mejoren la experiencia de uso del celular.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>Visión</h3> 
+                        <p>Ser una empresa reconocida por la creación de amplificadores de sonido en madera innovadores, funcionales y sostenibles. Aspiramos a posicionarnos como una marca que combina física acústica básica, estética y compromiso ecológico.</p>
+                    </div>
+                </div>
+
+                <div class="benefits-gallery">
+                    <div class="gallery-card">
+                        <div class="gallery-img-container">
+                            <img src="imgs/juan diego.png.jpeg" alt="Juan Diego Florez Martinez">
+                        </div>
+                        <div class="gallery-card-content">
+                            <h2> TIC</h2>
+                            <h4>Juan Diego Florez Martinez</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-card">
+                        <div class="gallery-img-container">
+                            <img src="imgs/mimis.png.png" alt="Amy Alejandra Puerto Mejia">
+                        </div>
+                        <div class="gallery-card-content">
+                            <h2> Diseño</h2>
+                            <h4>Amy Alejandra Puerto Mejia</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-card">
+                        <div class="gallery-img-container">
+                            <img src="imgs/yeimi.png.png" alt="Yeimi Carolina Reyes Moreno">
+                        </div>
+                        <div class="gallery-card-content">
+                            <h2> Gestión Empresarial</h2>
+                            <h4>Yeimi Carolina Reyes Moreno</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-card">
+                        <div class="gallery-img-container">
+                            <img src="imgs/danna.png.png" alt="Danna Mariana Acosta Zambrano">
+                        </div>
+                        <div class="gallery-card-content">
+                            <h2> Gestión Empresarial</h2>
+                            <h4>Danna Mariana Acosta Zambrano</h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section products bg-waves-pastel-1" id="catalogo">
+        <div class="section-container">
+            <h2 class="section-title">Catalogo</h2> 
+            
+            <div class="slider-wrapper">
+                <div class="slider-container">
+                    <button class="slider-btn slider-btn-prev" onclick="scrollSlider(-1)">❮</button>
+                    
+                    <div class="products-slider" id="productSlider">
+                        <!-- Imagen 1 -->
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <img src="../imagenes producto/Gemini_Generated_Image_2zl29z2zl29z2zl2 (1).jfif" class="product-img" alt="Producto Wave 1">
+                            </div>
+                        </div>
+
+                        <!-- Imagen 2 -->
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <img src="../../../Downloads/Gemini_Generated_Image_7qx0qn7qx0qn7qx0.jfif" class="product-img" alt="Producto Wave 2">
+                            </div>
+                        </div>
+
+                        <!-- Imagen 3 -->
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <img src="../imagenes producto/Gemini_Generated_Image_8g429x8g429x8g42.jfif" class="product-img" alt="Producto Wave 3">
+                            </div>
+                        </div>
+
+                        <!-- Imagen 4 (Añade aquí tu imagen) -->
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <img src="../imagenes producto/Gemini_Generated_Image_e8hzsee8hzsee8hz.jfif">
+                            </div>
+                        </div>
+
+                        <!-- Imagen 5 (Añade aquí tu imagen) -->
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <img src="../../../Downloads/WhatsApp Image 2026-10-01 at 11.35.08 AM.jpeg">
+                            </div>
+                        </div>
+
+                        <!-- Imagen 6 (Añade aquí tu imagen) -->
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <img src="../imagenes producto/Gemini_Generated_Image_4zbljg4zbljg4zbl.jfif">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="slider-btn slider-btn-next" onclick="scrollSlider(1)">❯</button>
+                </div>
+
+                <!-- PUNTOS PARA SELECCIONAR / NAVEGAR IMÁGENES -->
+                <div class="slider-dots" id="sliderDots">
+                    <span class="dot active" onclick="goToSlide(0)"></span>
+                    <span class="dot" onclick="goToSlide(1)"></span>
+                    <span class="dot" onclick="goToSlide(2)"></span>
+                    <span class="dot" onclick="goToSlide(3)"></span>
+                    <span class="dot" onclick="goToSlide(4)"></span>
+                    <span class="dot" onclick="goToSlide(5)"></span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section bg-waves-pastel-2" id="tesis">
+        <div class="section-container">
+            <h2 class="section-title">Documentos </h2> 
+            
+            <div class="tesis-box">
+                <div class="tesis-header">
+                    <div class="word-icon">W</div>
+                    <div>
+                        <h3 style="font-size: 1.25rem; color: var(--color-text-main);">Documento Completo de Investigación y Plan de Negocios</h3>
+                        <p style="color: var(--color-text-subtle); font-size: 0.9rem;">Amplificador de Sonido en Madera — Wave S.A.S. (2026)</p>
+                    </div>
+                </div>
+                <p style="font-size: 0.9rem;">Accede al documento académico completo en formato Microsoft Word (.docx). Incluye el estudio de mercado, planimetría, análisis financiero (TIR y VPN), estructura legal de la S.A.S., estatutos y estudio DOFA.</p>
+                
+                <div class="tesis-details">
+                    <p><strong>Autores:</strong> Danna Acosta, Juan Flórez, Amy Puerto, Yeimi Reyes</p>
+                    <p><strong>Institución:</strong> Liceo Latino Americano del Sur</p>
+                    <p><strong>Énfasis:</strong> Gestión Empresarial</p>
+                    <p><strong>Tutor:</strong> Mag. John Alexander González Abril</p>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.2rem;">
+                    <a href="../../../Downloads/Tesis Wave..docx" download class="btn btn-word">
+                        📄 Descargar Tesis en Word (.docx)
+                    </a>
+                </div>
+            </div>
+            <div class="events-banner">
+                <h2>Contáctanos</h2> 
+                <p>Personalizamos acabados, grabados en madera y detalles estéticos para regalos empresariales, ferias o eventos académicos.</p> 
+                <a href="https://wa.me/573502110521?text=Hola,%20me%20interesa%20cotizar" class="btn btn-primary" target="_blank">Cotizar por WhatsApp</a> 
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Wave S.A.S.</h3>
+                <p><strong>Amplificadores de Sonido en Madera</strong></p>
+                <p>Soluciones acústicas ecológicas, artesanales y funcionales para dispositivos móviles.</p>
+                <p>Bogotá D.C., Colombia — Quinta de Usme</p>
+            </div>
+            <div class="footer-column">
+                <h3>Síguenos en Redes</h3>
+                <p>Descubre nuestros procesos de fabricación y nuevos diseños.</p>
+                <ul class="social-links">
+                    <li><a href="https://www.instagram.com/wave_lls31?igsh=Z2w0OTdnM29zcHUy" target="_blank">Instagram</a></li>
+                    <li><a href="https://www.tiktok.com/@wave_lls31?_r=1&_t=ZS-992qs7OZU6S" target="_blank">TikTok</a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=61569235223144" target="_blank">Facebook</a></li>
+                    <li><a href="https://wa.me/573502110521" target="_blank">WhatsApp</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Ubicación del Proyecto</h3>
+                <p>Liceo Latino Americano del Sur, Bogotá D.C.</p>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.6606114138096!2d-74.07209252502016!3d4.609710042240974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99a32c633a6b%3A0xb89542a1768686e0!2sPlaza%20de%20Bol%C3%ADvar!5e0!3m2!1ses!2sco!4v1710000000000!5m2!1ses!2sco" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Wave S.A.S. - Liceo Latino Americano del Sur. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const slider = document.getElementById('productSlider');
+        const dots = document.querySelectorAll('.dot');
+
+        function scrollSlider(direction) {
+            const cardWidth = slider.querySelector('.product-card').offsetWidth + 24; // Incluye el gap
+            slider.scrollBy({
+                left: direction * cardWidth,
+                behavior: 'smooth'
+            });
+        }
+
+        function goToSlide(index) {
+            const cardWidth = slider.querySelector('.product-card').offsetWidth + 24;
+            slider.scrollTo({
+                left: index * cardWidth,
+                behavior: 'smooth'
+            });
+            updateDots(index);
+        }
+
+        function updateDots(activeIndex) {
+            dots.forEach((dot, idx) => {
+                if (idx === activeIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Actualizar los puntos al hacer scroll manual
+        slider.addEventListener('scroll', () => {
+            const cardWidth = slider.querySelector('.product-card').offsetWidth + 24;
+            const activeIndex = Math.round(slider.scrollLeft / cardWidth);
+            updateDots(activeIndex);
+        });
+    </script>
+
+</body>
+</html>
